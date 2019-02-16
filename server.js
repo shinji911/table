@@ -69,13 +69,17 @@ app.get("/api/waitlist", function (req, res) {
 
 
 // Create New Reservations - takes in JSON input
-app.post("/reserve", function (req, res) {
+app.post("/api/tables", function (req, res) {
 
-    var newReserve = req.body;    
+    let newReserve = req.body;
 
-    tables.push(newReserve);
+    if (tables.length < 5) {
+        tables.push(newReserve);
+    } else {
+        waitlist.push(newReserve);
+    }
 
-    res.json();
+    res.json(newReserve);
 });
 
 // Starts the server to begin listening
