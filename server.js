@@ -75,11 +75,13 @@ app.post("/api/tables", function (req, res) {
 
     if (tables.length < 5) {
         tables.push(newReserve);
+        res.json(true);
     } else {
         waitlist.push(newReserve);
+        res.json(false);
     }
 
-    res.json(newReserve);
+    
 });
 
 // Starts the server to begin listening
