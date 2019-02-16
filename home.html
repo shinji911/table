@@ -30,10 +30,32 @@
      <div class="container">
        <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a>
      </div>
+  
+
    </footer>
 
  </div>
-
-
-</body>
+ <h1>Page Views</h1>
+ <div id="pageViews"></div>
+ <script
+ src="https://code.jquery.com/jquery-3.3.1.min.js"
+ integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+ crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+ <script>
+   //pageviews socket.io
+   var connectedCount = 0;
+   
+   var socket = io.connect('http://localhost:3000');
+   socket.on('connect', function () {
+     socket.send(window.location);
+     socket.on('pageview', function (msg) {
+       connectedCount++;
+       console.log(msg)
+       $('#pageViews').html(connectedCount);
+      });
+    });
+    
+    </script>
+  </body>
 </html>

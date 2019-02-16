@@ -2,11 +2,15 @@
 // =============================================================
 const express = require("express");
 const path = require("path");
+//visit counter
+
+
 
 // Sets up the Express App
 // =============================================================
 const app = express();
-const PORT = 3000;
+const PORT = 8080;
+
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -91,4 +95,17 @@ app.post("/api/clear", function (req, res) {
 // =============================================================
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
+});
+
+var io = require('socket.io').listen(3000);
+
+
+//listen to page visits from html
+io.sockets.on('connection', function (socket) {
+
+    socket.on('message', function (message) {
+        console.log("Got message: " + message);
+        io.sockets.emit('pageview', { 'url': message });
+    });
+
 });
