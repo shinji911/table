@@ -15,33 +15,31 @@ app.use(express.json());
 // Tables data
 let tables = [
     {
-        TableNo: 1,
-        ID: 333,
-        name: "Yoda",
-        email: "greenturd@jedimasters.org",
-        phone: "456-123-7894"
+        customerID: 333,
+        customerName: "Yoda",
+        customerEmail: "greenturd@jedimasters.org",
+        phoneNumber: "456-123-7894"
     },
     {
-        TableNo: 2,
-        ID: 334,
-        name: "Vegeta",
-        email: "iamthestrongest@saiyan.com",
-        phone: "789-789-1000"
+        customerID: 334,
+        customerName: "Vegeta",
+        customerEmail: "iamthestrongest@saiyan.com",
+        phoneNumber: "789-789-1000"
     }
 ];
 
 let waitlist = [
     {
-        lineNo: 1,
-        name: "Yoda",
-        email: "greenturd@jedimasters.org",
-        phone: "456-123-7894"
+        customerID: 333,
+        customerName: "Yoda",
+        customerEmail: "greenturd@jedimasters.org",
+        phoneNumber: "456-123-7894"
     },
     {
-        lineNo: 2,
-        name: "Vegeta",
-        email: "iamthestrongest@saiyan.com",
-        phone: "789-789-1000"
+        customerID: 334,
+        customerName: "Vegeta",
+        customerEmail: "iamthestrongest@saiyan.com",
+        phoneNumber: "789-789-1000"
     }
 ];
 
